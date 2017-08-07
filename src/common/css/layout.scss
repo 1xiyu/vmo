@@ -1,0 +1,21 @@
+@define-extend center {
+    justify-content: center;
+    align-items: center;
+}
+
+@define-extend scroll {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+@define-mixin hascolor {
+    background: red;
+}
+
+@define-extend fullfill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
