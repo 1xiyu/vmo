@@ -1,22 +1,25 @@
 <template>
   <div>
-    <button style="font-size: 50px; background:#ff0000" @click="test">
-       show or hidden
-    </button>
+    <mo-button
+      :text = " 'test showtip' " 
+      @click.native = "test"
+      fix-direction="bottom"
+    ></mo-button>
   </div>
 </template>
-
 <script>
+  import Button from '@/components/Button'
   import Message from '@/components/ShowTip'
   export default {
-    name: 'app',
+    name: 'showtip',
     data() {
         return {
           showLoading: true
         }
     },
     components: {
-      'show-tip': Message
+      'show-tip': Message,
+      'mo-button': Button
     },
     methods: {
       test () {

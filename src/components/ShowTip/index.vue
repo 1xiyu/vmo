@@ -62,7 +62,7 @@
 </script>
 <style>
     .common-tip {
-        height: 50px;
+        height: 30px;
         position: fixed;
         font-size: 28px;
         left: 50%;

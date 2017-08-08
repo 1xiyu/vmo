@@ -1,28 +1,30 @@
 <template>
   <div>
-    
-    <button style="font-size: 50px; background:#ff0000" @click="test">
-       show or hidden
-    </button>
+    <mo-button
+      :text = " 'test confirm' " 
+      @click.native = "test"
+      fix-direction="bottom"
+    ></mo-button>
   </div>
 </template>
-
 <script>
+  import Button from '@/components/Button'
   import Confirm from '@/components/Confirm'
   export default {
-    name: 'app',
+    name: 'confirm',
     data() {
         return {
           showLoading: true
         }
     },
     components: {
-      'mo-confirm': Confirm
+      'mo-confirm': Confirm,
+      'mo-button': Button
     },
     methods: {
       test () {
         Confirm.open({
-           title: '111111',
+          title: '111111',
           cancelText: 'cancel',
           confirmText: 'ok',
           confirmCallBack () {
@@ -31,9 +33,7 @@
           cancelCallBack () {
             console.log('cancel')
           } 
-        }
-         
-        )
+        })
       }
     }
   }

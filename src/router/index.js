@@ -7,6 +7,7 @@ import Switch from '@/demos/Switch/index'
 import Mask from '@/demos/Mask/index'
 import Button from '@/demos/Button/index'
 import Confirm from '@/demos/Confirm/index'
+import Tab from '@/demos/Tab/index'
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +46,11 @@ export default new Router({
 			path: '/confirm',
 			name: 'Confirm',
 			component: Confirm
+		},
+		{
+			path: '/tab',
+			name: 'Tab',
+			component: Tab
 		}
   ]
 })

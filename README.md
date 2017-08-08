@@ -1,6 +1,6 @@
 # vmo
 
-> A ui library of vue for mo Edit
+> A ui library of vue for mo 
 
 ## Build Setup
 

@@ -9,25 +9,6 @@ export default {
   name: 'app',
   data() {
       return {
-          list: [{
-              text: 'Loading',
-              path: 'loading',
-          }, {
-              text: 'Confirm',
-              path: 'confirm'
-          }, {
-              text: 'ShowTip',
-              path: 'showtip'
-          }, {
-              text: 'Mask',
-              path: 'mask',
-          }, {
-              text: 'Switch',
-              path: 'switch',
-          }, {
-              text: 'Hello',
-              path: 'hello'
-          }],
       }
   },
 }

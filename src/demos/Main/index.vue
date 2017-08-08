@@ -11,37 +11,37 @@
 
 <script>
   import Loading from '@/components/Loading'
-export default {
-  name: 'app',
-  data() {
-      return {
-          list: [
-            {
-              text: 'Loading',
-              path: 'loading',
-            }, {
-              text: 'Confirm',
-              path: 'confirm'
-            }, {
-              text: 'ShowTip',
-              path: 'showtip'
-            }, {
-              text: 'Mask',
-              path: 'mask',
-            }, {
-              text: 'Switch',
-              path: 'switch',
-            }, {
-              text: 'Button',
-              path: 'button'
-            }
-          ],
-      }
-  },
-  components: {
-    'loading': Loading
+  export default {
+    name: 'app',
+    data() {
+        return {
+            list: [
+              {
+                text: 'Loading',
+                path: 'loading',
+              }, {
+                text: 'Confirm',
+                path: 'confirm'
+              }, {
+                text: 'ShowTip',
+                path: 'showtip'
+              }, {
+                text: 'Mask',
+                path: 'mask',
+              }, {
+                text: 'Switch',
+                path: 'switch',
+              }, {
+                text: 'Button',
+                path: 'button'
+              },
+            ],
+        }
+    },
+    components: {
+      'loading': Loading
+    }
   }
-}
 </script>
 <style>
     .router-link {

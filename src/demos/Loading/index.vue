@@ -4,13 +4,17 @@
       :show="showLoading"
       :isFixed="true">
     </loading>
-    <button style="font-size: 50px; background:#ff0000" @click="test">
-       show or hidden
-    </button>
+    <el-button
+      :text = " 'show or hidden' " 
+      @click.native = "test"
+      fix-direction="bottom"
+    >
+    </el-button>
   </div>
 </template>
 
 <script>
+  import Button from '@/components/Button'
   import Loading from '@/components/Loading'
   export default {
     name: 'app',
@@ -20,7 +24,8 @@
         }
     },
     components: {
-      'loading': Loading
+      'loading': Loading,
+      'el-button': Button
     },
     methods: {
       test () {
