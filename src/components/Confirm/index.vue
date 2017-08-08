@@ -2,7 +2,6 @@
     <transition name="msgbox-fade">
         <el-mask>
             <div class="mm-confirm-wrapper">
-    
                 <div class="mm-confirm-box">
                     <h3 class="mm-confirm-title">
                         {{title}}
@@ -73,8 +72,6 @@
     }
 </script>
 <style scoped lang="scss">
-    
-    
     .mm-confirm-wrapper {
             position: absolute;
     top: 0;

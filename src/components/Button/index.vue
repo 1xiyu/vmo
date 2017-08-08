@@ -1,13 +1,10 @@
-
 <template>
     <a :class="btnClassObj" :href="href" :style="styleObj">
         <img v-if="url" class="btn-img" :src="url" alt="seo">
         {{text}}
     </a>
 </template>
-
 <script>
-
     export default {
         props: {
             url: {
@@ -67,7 +64,6 @@
     $primary-color:#fff;
     $gray-bgc:#f0f0f0;
     $gray-color:#5a5a5a;
-    
     .button {
         display: inline-block;
         height: 88px;
@@ -78,23 +74,18 @@
         appearance: none;
         width: 100%;
     }
-    
     .button-block {
         display: block;
     }
-    
     .button-primary {
         background-color: $primary-bgc;
         color: $primary-color;
     }
-    
     .button-black {
         background-color: rgba(0, 0, 0, 0.85);
         color: $primary-color;
         border: 2px solid #979797;
-    }
-    
-
+    } 
     .fix-bottom {
         position: fixed;
         bottom: 0;
