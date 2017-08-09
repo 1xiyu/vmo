@@ -30,7 +30,6 @@
             content: '22444',
             theme: '',
             button: 'ok',
-            AlertText: '222',
             confirmCallBack: function(){
             	console.log(1)
             },

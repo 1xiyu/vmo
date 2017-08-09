@@ -19,7 +19,7 @@ const Alert = (options = {}) => {
         return
     }
     let id = 'Alert' + seed++;
-    const requiredProps = ['title', 'AlertText'];
+    const requiredProps = ['title'];
     for (let i = 0, j = requiredProps.length; i < j; i++) {
         if (!hasOwnProperty(options, requiredProps[i])) {
             throw Error(`Missed required prop:${requiredProps[i]}`);

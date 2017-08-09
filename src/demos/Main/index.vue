@@ -2,7 +2,8 @@
   <div class="router-link">
     <router-link 
       class="router-item" 
-      v-for="item in list" 
+      v-for="(item, index) in list" 
+      :key="index"
       :to="{path:'/'+ item.path}"> 
       {{item.text}}
     </router-link>
@@ -40,6 +41,9 @@
               },{
                 text: 'Alert',
                 path: 'alert'
+              },{
+                text: 'Tab',
+                path: 'tab'
               }
             ],
         }
