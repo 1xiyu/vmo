@@ -23,7 +23,7 @@
     },
     methods: {
       test () {
-        Confirm.open({
+        this.$confirm({
           title: '111111',
           cancelText: 'cancel',
           confirmText: 'ok',

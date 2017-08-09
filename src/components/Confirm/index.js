@@ -36,7 +36,7 @@ const Confirm = (options = {}) => {
     instance.dom = instance.vm.$el;
     return instance.vm;
 }
-Confirm.open = (options) => {
+Vue.prototype.$confirm = (options) => {
     return Confirm(options);
 };
 Confirm.colse = () => {

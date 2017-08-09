@@ -1,3 +1,108 @@
+<template>
+    <transition name="fade">
+        <div v-bind:class="classObject" v-show="show">
+            <mo-mask :show="show"></mo-mask>
+            <div class="alert-dialog">
+                <img :src="occupied" class="alert-occupied" v-if="occupied">
+                <h4 class="alert-title" v-html="title"></h4>
+                <p class="alert-content" v-if="content">
+                    {{content}}
+                </p>
+                <div class="alert-content" v-else>
+                    <slot></slot>
+                </div>
+                <div class="alert-btn-wrapper">
+                    <button class="alert-btn" v-on:click.prevent="clickRightBtn">{{button}}</button>
+                </div>
+            </div>
+        </div>
+    </transition>
+</template>
+<script>
+import Mask from '../Mask/index';
+export default {
+    components:{
+        'mo-mask': Mask
+    },
+    data () {
+        return {
+            show: true,
+            title: '',
+            content: '',
+            theme: '',
+            button: '',
+            confirmCallBack: null,
+            platform: null,
+            occupied: ''
+        }
+    },
+    watch:{
+        show:function (val) {
+            this.show = val;
+            if(!this.isPushState && this.show == true){
+                this.isPushState = true;
+                this.historyLength = history.length
+                try {
+                    history.pushState('alert-show', null , null);
+                } catch (error) {
+
+                }
+            }
+            if(this.isPushState && this.show == false){
+                if(history.state == 'alert-show'){
+                    this.isPushState = false;
+                    history.back();
+                }
+            }
+            window.addEventListener('popstate', this.pushStateHandler)
+            if(this.show){
+                // $('body').css('overflow','hidden');
+            }else{
+                // $('body').css('overflow','auto');
+            }
+        }
+    },
+    computed:{
+        device:function (){
+            if(this.platform){
+                return this.platform;
+            }else{
+                return navigator.userAgent.match('Android') ? 'android':'ios'
+            }
+        },
+        classObject:function (){
+            var o = {
+                'alert':true,
+                'alert-ios':this.device == 'ios',
+                'alert-android':this.device == 'android'
+            };
+
+            if(this.theme){
+                var theme = `alert-theme-${this.theme}`;
+                o[theme] = true;
+            }
+            return o
+        },
+    },
+    methods:{
+        pushStateHandler : function (){
+            if(this.isPushState){
+                this.$emit('update:show', false)
+                this.isPushState = false;
+                this.$emit('cancel');
+                window.removeEventListener('popstate', this.pushStateHandler);
+            }
+        },
+        clickRightBtn:function (){
+            this.show = false;
+            return this.confirmCallBack();
+        }
+    },
+    beforeDestroy:function () {
+        // $('body').css('overflow','initial');
+    }
+}
+</script>
 <style scoped lang="scss">
     .alert {
         position: fixed;
@@ -138,119 +243,3 @@
         }
     }
 </style>
-<template>
-    <transition name="fade">
-        <div v-bind:class="classObject" v-show="show">
-            <mo-mask :show="show"></mo-mask>
-            <div class="alert-dialog">
-                <img :src="occupied" class="alert-occupied" v-if="occupied">
-                <h4 class="alert-title" v-html="title"></h4>
-                <p class="alert-content" v-if="content">
-                    {{content}}
-                </p>
-                <div class="alert-content" v-else>
-                    <slot></slot>
-                </div>
-                <div class="alert-btn-wrapper">
-                    <button class="alert-btn" v-on:click.prevent="clickRightBtn">{{button}}</button>
-                </div>
-            </div>
-        </div>
-    </transition>
-</template>
-<script>
-import Mask from '../Mask/index';
-export default {
-    components:{
-        'mo-mask': Mask
-    },
-    props: {
-        show:{
-            default: true,
-            required:true,
-        },
-        title:{
-
-        },
-        occupied:{
-            default:''
-        },
-        theme:{
-
-        },
-        content:{
-
-        },
-        button:{
-            default:'确定'
-        },
-        platform:{
-
-        },
-    },
-    watch:{
-        show:function (val) {
-            if(!this.isPushState && this.show == true){
-                this.isPushState = true;
-                this.historyLength = history.length
-                try {
-                    history.pushState('alert-show', null , null);
-                } catch (error) {
-
-                }
-            }
-            if(this.isPushState && this.show == false){
-                if(history.state == 'alert-show'){
-                    this.isPushState = false;
-                    history.back();
-                }
-            }
-            window.addEventListener('popstate', this.pushStateHandler)
-            if(this.show){
-                // $('body').css('overflow','hidden');
-            }else{
-                // $('body').css('overflow','auto');
-            }
-        }
-    },
-    computed:{
-        device:function (){
-            if(this.platform){
-                return this.platform;
-            }else{
-                return navigator.userAgent.match('Android') ? 'android':'ios'
-            }
-        },
-        classObject:function (){
-            var o = {
-                'alert':true,
-                'alert-ios':this.device == 'ios',
-                'alert-android':this.device == 'android'
-            };
-
-            if(this.theme){
-                var theme = `alert-theme-${this.theme}`;
-                o[theme] = true;
-            }
-            return o
-        },
-    },
-    methods:{
-        pushStateHandler : function (){
-            if(this.isPushState){
-                this.$emit('update:show', false)
-                this.isPushState = false;
-                this.$emit('cancel');
-                window.removeEventListener('popstate', this.pushStateHandler);
-            }
-        },
-        clickRightBtn:function (){
-            this.$emit('update:show', false)
-            this.$emit('sure')
-        }
-    },
-    beforeDestroy:function () {
-        // $('body').css('overflow','initial');
-    }
-}
-</script>
