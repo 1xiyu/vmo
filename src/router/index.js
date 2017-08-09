@@ -8,6 +8,8 @@ import Mask from '@/demos/Mask/index'
 import Button from '@/demos/Button/index'
 import Confirm from '@/demos/Confirm/index'
 import Tab from '@/demos/Tab/index'
+import InfiniteScroll from '@/demos/InfiniteScroll/index'
+import Alert from '@/demos/Alert/index.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +53,16 @@ export default new Router({
 			path: '/tab',
 			name: 'Tab',
 			component: Tab
+		},
+		{
+			path: '/infinitescroll',
+			name: 'InfiniteScroll',
+			component: InfiniteScroll
+		},
+		{
+			path: '/alert',
+			name: 'Alert',
+			component: Alert
 		}
   ]
 })

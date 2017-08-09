@@ -34,7 +34,13 @@
               }, {
                 text: 'Button',
                 path: 'button'
-              },
+              },{
+                text: 'InfiniteScroll',
+                path: 'infinitescroll'
+              },{
+                text: 'Alert',
+                path: 'alert'
+              }
             ],
         }
     },

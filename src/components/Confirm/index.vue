@@ -73,15 +73,15 @@
 </script>
 <style scoped lang="scss">
     .mm-confirm-wrapper {
-            position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
         overflow: hidden;
         display: flex;
-         justify-content: center;
-    align-items: center;
+        justify-content: center;
+        align-items: center;
         z-index: 100;
         .mm-confirm-box {
             display: block;
@@ -89,7 +89,6 @@
             border-radius: 16px;
             -webkit-backdrop-filter: blur(19.6px);
             background-color: rgba(255, 255, 255, 0.94);
-    
             .mm-confirm-title {
                 height: 38px;
                 width: 100%;
@@ -132,9 +131,7 @@
                 }
             }
         }
-    }
-    
-    
+    } 
     .msgbox-fade-leave-active {
         animation: msgbox-fade-out .3s
     }
