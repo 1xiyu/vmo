@@ -9,7 +9,7 @@
     export default {
         data() {
             return {
-                visible: false,
+                visible: true,
                 message: '',
                 duration: 2000,
                 type: 'info',
@@ -60,7 +60,7 @@
         }
     };
 </script>
-<style>
+<style scoped>
     .common-tip {
         height: 30px;
         position: fixed;

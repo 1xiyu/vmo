@@ -23,7 +23,7 @@
     },
     methods: {
       test () {
-        this.showTip('This is a test')
+        this.$showTip('This is a test')
       }
     }
   }

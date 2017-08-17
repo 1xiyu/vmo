@@ -14,6 +14,7 @@ import PageContainer from '@/demos/PageContainer/index'
 import ListItem from '@/demos/ListItem/index'
 import Badge from '@/demos/Badge/index'
 import Cell from '@/demos/Cell/index'
+import ActionSheet from '@/demos/ActionSheet/index'
 Vue.use(Router)
 
 export default new Router({
@@ -87,6 +88,11 @@ export default new Router({
 			path: '/cell',
 			name: 'cell',
 			component: Cell
+		},
+		{
+			path: '/actionsheet',
+			name: 'actionsheet',
+			component: ActionSheet
 		}
   ]
 })

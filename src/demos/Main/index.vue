@@ -56,6 +56,9 @@
               },{
                 text: 'Cell',
                 path: 'cell'
+              },{
+                text: 'ActionSheet',
+                path: 'actionsheet'
               }
             ],
         }
