@@ -36,10 +36,7 @@
 
 </script>
 <style lang="scss">
-	.cell-1 {
-		height: 100px;
-		line-height: 100px;
-	}
+
 	.cell-container {
 		height: 190px;
 		background-color: #fff;

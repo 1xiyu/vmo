@@ -20,7 +20,10 @@
               {
                 text: 'Loading',
                 path: 'loading',
-              }, {
+              },{
+                text: 'Alert',
+                path: 'alert'
+              },{
                 text: 'Confirm',
                 path: 'confirm'
               }, {
@@ -38,9 +41,6 @@
               },{
                 text: 'InfiniteScroll',
                 path: 'infinitescroll'
-              },{
-                text: 'Alert',
-                path: 'alert'
               },{
                 text: 'Tab',
                 path: 'tab'
