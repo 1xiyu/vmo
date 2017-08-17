@@ -7,24 +7,27 @@ let seed = 1;
 
 var Message = function (options) {
     if (Vue.prototype.$isServer) return;
+
     options = options || {};
+
     if (typeof options === 'string') {
         options = {
             message: options
         };
     }
-    let userOnClose = options.onClose;
-    let id = 'message_' + seed++;
+    // let userOnClose = options.onClose;
+    // let id = 'message_' + seed++;
 
-    options.onClose = function () {
-        Message.close(id, userOnClose);
-    };
+    // options.onClose = function () {
+    //     Message.close(id, userOnClose);
+    // };
 
     instance = new MessageConstructor({
         data: options
     });
-    instance.id = id;
-    instance.vm = instance.$mount();
+
+    // instance.id = id;
+    instance = instance.$mount();
     document.body.appendChild(instance.vm.$el);
     instance.vm.visible = true;
     instance.dom = instance.vm.$el;

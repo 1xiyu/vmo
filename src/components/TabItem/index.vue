@@ -27,7 +27,7 @@
         }
     }
 </script>
-<style>
+<style scoped lang="scss">
     .tab-item {
         display: flex;
         width: 250px;
@@ -38,9 +38,9 @@
             box-sizing: border-box;
             margin: auto 0;
             text-align: center;
-            line-height: 28px;
             font-size: 28px;
             color: #828282;
+            
         }
         &.active {
             &.border {

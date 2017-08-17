@@ -1,0 +1,148 @@
+/**
+ *  媒体查询
+ *  使用
+ *  h1 {  @include font-size($h1-font-sizes); }
+ */
+$h1-font-sizes: (
+  null  : 15px,
+  375px : 16px,
+  414px : 17px,
+  768px : 19px
+);
+
+@mixin font-size($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+/**
+ *  省略号
+ *  使用
+ *  h1 { width: 200px; @include ellipsis; }
+ */
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/**
+ *  清除浮动
+ *  使用
+ */
+@mixin clearfix {
+    &:after {
+        clear: both;
+        content: '.';
+        display: block;
+        height: 0;
+        line-height: 0;
+        overflow: hidden;
+    }
+    *height: 1%;
+}
+
+/**
+ * 箭头
+ * 使用
+ * arrow(direction,size,color);
+ */
+@mixin arrow( $direction, $size, $color) {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-width: $size;
+    cursor: pointer;
+    @if $direction == top {
+        border-style: dashed dashed solid dashed;
+        border-color: transparent transparent $color transparent;
+        border-top: none;
+    }
+    @else if $direction == bottom {
+        border-style: solid dashed dashed dashed;
+        border-color: $color transparent transparent transparent;
+        border-bottom: none;
+    }
+    @else if $direction == right {
+        border-style: dashed dashed dashed solid;
+        border-color: transparent transparent transparent $color;
+        border-right: none;
+    }
+    @else if $direction == left {
+        border-style: dashed solid dashed dashed;
+        border-color: transparent $color transparent transparent;
+        border-left: none;
+    }
+}
+
+/**
+ *  插入背景图
+ *  使用
+ *  @include back-ground('http://img.momocdn.com/
+ *  album/37/99/37993F44-2605-6CB4-2EEB-6A7F75B5218620161015_S.jpg')
+ */
+@mixin back-ground($link) {
+  background-image: url($link);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/**
+ *  使用绝对定位
+ *  使用
+ *  @include abs-pos(10px, 10px, 5px, 5px)
+ */
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+
+/**
+ *  常用在修改元素在不同状态下的属性。比如我们的H5页面会给当前页面加个  
+ *  active类名，我们想让当前页面中的 foo对象执行动画。
+ *  .foo {  @include when-inside('.active') {
+ *      animation: fadeIn 0.3s 1s forwards;
+ *    }}
+ *  after compile  
+ *  .active .foo { animation: fadeIn 0.3s 1s forwards; }
+ */
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/**
+ *  border-1px with radius
+ *  使用
+ *  .radius-container {height: 300px;  position: relative; @include border-1px;}
+ */
+@mixin border-1px {
+  &:after {
+    content: "";
+    pointer-events: none; 
+    box-sizing: border-box;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+    border-radius: 4px;
+    border-bottom:1px solid #eee;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+}

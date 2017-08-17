@@ -48,25 +48,16 @@
                 this.closed = true;
             },
             destroyElement() {
-                this.$destroy(true);
+                this.$destroy();
                 this.$el.parentNode.removeChild(this.$el);
             },
             cancel(prop) {
-                // const func = this[prop];
-                // if (typeof func === 'function') {
-                //     const result = func();
-                //     if (typeof result === 'object' && typeof result.then === 'function') {
-                //         result.then(() => {
-                //             this.close();
-                //         })
-                //     }
-                // }
                 this.close();
-                this.cancelCallBack && this.cancelCallBack();
+                return this.cancelCallBack();
             },
             confirm() {
                 this.close();
-                this.confirmCallBack && this.confirmCallBack();
+                return this.confirmCallBack();
             }
         }
     }

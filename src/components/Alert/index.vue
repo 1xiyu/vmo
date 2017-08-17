@@ -26,6 +26,7 @@ export default {
     },
     data () {
         return {
+            destroy: false,
             show: true,
             title: '',
             content: '',
@@ -37,7 +38,12 @@ export default {
         }
     },
     watch:{
-        show:function (val) {
+        destroy: function(val) {
+            if (val) {
+                this.destroyElement();
+            }
+        },
+        show: function (val) {
             this.show = val;
             if(!this.isPushState && this.show == true){
                 this.isPushState = true;
@@ -55,11 +61,6 @@ export default {
                 }
             }
             window.addEventListener('popstate', this.pushStateHandler)
-            if(this.show){
-                // $('body').css('overflow','hidden');
-            }else{
-                // $('body').css('overflow','auto');
-            }
         }
     },
     computed:{
@@ -94,12 +95,13 @@ export default {
             }
         },
         clickRightBtn:function (){
-            this.show = false;
+            this.destroy = true;
             return this.confirmCallBack();
-        }
-    },
-    beforeDestroy:function () {
-        // $('body').css('overflow','initial');
+        },
+        destroyElement() {
+            this.$destroy();
+            this.$el.parentNode.removeChild(this.$el);
+        },
     }
 }
 </script>

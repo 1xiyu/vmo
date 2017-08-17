@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="root"></div>
+	<script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#root'
+		})
+
+		var MyComponent = Vue.extend({
+		  template: '<p>this is a test {{msg}}</p>',
+		  data() {
+		  	return {
+		  		msg:2
+		  	}
+		  }
+		})
+		// all instances of `MyComponent` are created with
+		// the pre-defined extension options
+		var myComponentInstance = new MyComponent({
+			data: {
+				msg: 1
+			}
+		})
+		const component = myComponentInstance.$mount();
+		console.log(component)
+		document.body.appendChild(component.$el);
+		console.log(myComponentInstance)
+		// document.body.appendChild(myComponentInstance.$el);
+		vendor.js
+	</script>
+</html>

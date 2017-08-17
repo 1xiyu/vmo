@@ -9,7 +9,11 @@ import Button from '@/demos/Button/index'
 import Confirm from '@/demos/Confirm/index'
 import Tab from '@/demos/Tab/index'
 import InfiniteScroll from '@/demos/InfiniteScroll/index'
-import Alert from '@/demos/Alert/index.vue'
+import Alert from '@/demos/Alert/index'
+import PageContainer from '@/demos/PageContainer/index'
+import ListItem from '@/demos/ListItem/index'
+import Badge from '@/demos/Badge/index'
+import Cell from '@/demos/Cell/index'
 Vue.use(Router)
 
 export default new Router({
@@ -63,6 +67,26 @@ export default new Router({
 			path: '/alert',
 			name: 'Alert',
 			component: Alert
+		},
+		{
+			path: '/pagecontainer',
+			name: 'PageContainer',
+			component: PageContainer
+		},
+		{
+			path: '/listitem',
+			name: "ListItem",
+			component: ListItem
+		},
+		{
+			path: '/badge',
+			name: "Badge",
+			component: Badge
+		},
+		{
+			path: '/cell',
+			name: 'cell',
+			component: Cell
 		}
   ]
 })

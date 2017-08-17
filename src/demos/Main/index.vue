@@ -44,6 +44,18 @@
               },{
                 text: 'Tab',
                 path: 'tab'
+              },{
+                text: 'ListItem',
+                path: 'listitem'
+              },{
+                text: 'PageContainer',
+                path: 'pagecontainer'
+              },{
+                text: 'Badge',
+                path: 'badge'
+              },{
+                text: 'Cell',
+                path: 'cell'
               }
             ],
         }

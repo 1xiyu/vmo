@@ -1,4 +1,3 @@
-
 <template>
     <div class="mask" v-on:click="click">
         <slot></slot>
