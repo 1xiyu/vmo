@@ -1,13 +1,22 @@
 <template>
   <div>
-    <tab>
+    <tab :activeIndex="activeIndex">
       <tab-item  v-for="(item,index) in tabs" 
         :key="item.id"
-        :active="index+1==activeIndex"
-        @click.native="switchTab(index+1)">
+        @click.native="switchTab(index)">
           {{ item.text }}
       </tab-item>
     </tab>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
+    <p>this is a test</p>
   </div>
 </template>
 
@@ -21,7 +30,7 @@
     },
     data(){
       return {
-        activeIndex: '1',
+        activeIndex: '0',
         tabs: [
           { 
               id: '1',
@@ -50,10 +59,13 @@
   }
 </script>
 
-<style>
+<style scoped>
   .tab-content-container{
     width: 100%;
     height: 100%;
     margin: 0px auto;
+  }
+  p {
+    margin: 150px 0;
   }
 </style>

@@ -76,6 +76,11 @@
 
                 if (baseHeight + scrollTop + this.distance > moreHeight) {
                     this.isLoading = true;
+                    // console.log(this.scrollview.scrollTop);
+                    // console.log(this.scrollview.scrollHeight);
+                    // console.log(this.scrollview)
+                    this.scrollview = getScrollview(this.$el);
+                    this.scrollview.scrollTop = this.scrollview.scrollHeight;
                     this.onInfinite()
                 }
                 if (!this.scrollview) {

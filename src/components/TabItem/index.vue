@@ -8,22 +8,18 @@
 
 <script>
     export default {
-        props: {
-            active: {
-                default: false
-            },
-            border: {
-                default: true,
+        data () {
+            return {
+                active: false
             }
         },
         computed: {
-            classObject: function () {
+            classObject () {
                 return {
                     'tab-item': true,
-                    active: this.active,
-                    border: this.border
+                    'active-item': this.active
                 }
-            },
+            }
         }
     }
 </script>
@@ -42,10 +38,7 @@
             color: #828282;
             
         }
-        &.active {
-            &.border {
-                border-bottom: 4px solid #323333;
-            }
+        &.active-item {
             .text {
                 font-weight: bold;
                 color: #323333;

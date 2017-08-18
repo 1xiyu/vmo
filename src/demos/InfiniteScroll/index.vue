@@ -62,7 +62,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
   .infinite-scroll {
     width: 100%;
     height:100%;
@@ -71,10 +71,11 @@ export default {
     width: 100%;
     height: 45%;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .scroll-desc {
-    height: 2.5;
-    line-height: 80px;
+    height: 5%;
+    line-height: 2;
     text-align: center;
   }
   h1 {
