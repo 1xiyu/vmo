@@ -46,14 +46,14 @@ export default {
     },
     methods: {
         loadMore() {
-            console.log(this.$refs)
+           console.log(1)
             setTimeout(() => {
               this.list1 = [...this.list1, ...list]
               this.$refs.infinite1.$emit('load')
             }, 2000)
         },
         loadDone () {
-         console.log(this.$refs)
+         // console.log(this.$refs)
           setTimeout(() => {
             this.list2 = [...this.list2, ...list]
             this.$refs.infinite2.$emit('loadDone')

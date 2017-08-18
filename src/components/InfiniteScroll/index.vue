@@ -67,7 +67,7 @@
                 }
             },
             scrollHandler() {
-                console.log(22)
+                // console.log(22)
 
                 if (this.isLoading || this.isDone) return;
                 let baseHeight = this.scrollview == window ? document.body.offsetHeight : this.scrollview.offsetHeight
