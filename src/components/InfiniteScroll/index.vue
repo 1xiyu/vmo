@@ -47,7 +47,7 @@
             },
             //滚动到底部的距离
             distance: {
-                default: 100,
+                default: 50,
                 validator(val) {
                     return /^\d*$/.test(val);
                 }
@@ -76,12 +76,13 @@
 
                 if (baseHeight + scrollTop + this.distance > moreHeight) {
                     this.isLoading = true;
-                    // console.log(this.scrollview.scrollTop);
-                    // console.log(this.scrollview.scrollHeight);
-                    // console.log(this.scrollview)
-                    this.scrollview = getScrollview(this.$el);
-                    this.scrollview.scrollTop = this.scrollview.scrollHeight;
-                    this.onInfinite()
+                    // this.scrollview = getScrollview(this.$el);
+                    // this.scrollview.scrollTop += 600;
+                    console.log(this.scrollview.scrollTop)
+                    console.log(this.scrollview.scrollHeight)
+                    return;
+                  
+                    this.onInfinite();
                 }
                 if (!this.scrollview) {
                     console.warn('Can\'t find the scrollview!');
