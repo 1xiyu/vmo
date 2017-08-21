@@ -1,6 +1,6 @@
 <template>
     <transition name="msgbox-fade">
-        <el-mask>
+        <el-mask @click="clickWrap">
             <div class="mm-confirm-wrapper">
                 <div class="mm-confirm-box">
                     <h3 class="mm-confirm-title">
@@ -31,6 +31,7 @@
                 cancelText: '',
                 confirmCallBack: null,
                 cancelCallBack: null,
+                isWrapTap: false
             }
         },
         components: {
@@ -58,6 +59,11 @@
             confirm() {
                 this.close();
                 return this.confirmCallBack();
+            },
+            clickWrap() {
+                if (this.isWrapTap) {
+                    this.close();
+                }
             }
         }
     }

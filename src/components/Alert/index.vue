@@ -1,7 +1,7 @@
 <template>
     <transition name="fade">
         <div v-bind:class="classObject" v-show="show">
-            <mo-mask :show="show"></mo-mask>
+            <mo-mask :show="show" @click="clickWrap"></mo-mask>
             <div class="alert-dialog">
                 <img :src="occupied" class="alert-occupied" v-if="occupied">
                 <h4 class="alert-title" v-html="title"></h4>
@@ -34,7 +34,8 @@ export default {
             button: '',
             confirmCallBack: null,
             platform: null,
-            occupied: ''
+            occupied: '',
+            isWrapTap: false
         }
     },
     watch:{
@@ -102,6 +103,11 @@ export default {
             this.$destroy();
             this.$el.parentNode.removeChild(this.$el);
         },
+        clickWrap () {
+            if (this.isWrapTap) {
+                  this.show = false;
+            }
+        }
     }
 }
 </script>

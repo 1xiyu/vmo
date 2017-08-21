@@ -27,6 +27,7 @@
           title: '111111',
           cancelText: 'cancel',
           confirmText: 'ok',
+          isWrapTap: true,
           confirmCallBack () {
             console.log('ok')
           },
