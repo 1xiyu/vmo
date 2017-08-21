@@ -1,3 +1,5 @@
+[live-demo]: (https://1xiyu.github.io/vmo/dist/index.html#/)
+
 ### Loading
 
 #### Usage
@@ -148,15 +150,6 @@
 ```
     this.$showTip('This is a test')
 ```
-                visible: true,
-                message: '',
-                duration: 2000,
-                type: 'info',
-                iconClass: '',
-                customClass: '',
-                showClose: false,
-                closed: false,
-                timer: null
 #### API
 
 | 属性 | 说明 | 类型 | 默认值 |
