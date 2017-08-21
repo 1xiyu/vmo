@@ -1,4 +1,4 @@
-[live-demo]: (https://1xiyu.github.io/vmo/dist/index.html#/)
+#### [live-demo](https://1xiyu.github.io/vmo/dist/index.html#/)
 
 ### Loading
 
