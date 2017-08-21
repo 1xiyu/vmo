@@ -15,6 +15,7 @@ import ListItem from '@/demos/ListItem/index'
 import Badge from '@/demos/Badge/index'
 import Cell from '@/demos/Cell/index'
 import ActionSheet from '@/demos/ActionSheet/index'
+import CountDown from '@/demos/CountDown/index'
 Vue.use(Router)
 
 export default new Router({
@@ -93,6 +94,11 @@ export default new Router({
 			path: '/actionsheet',
 			name: 'actionsheet',
 			component: ActionSheet
+		},
+		{
+			path: '/countdown',
+			name: 'countdown',
+			component: CountDown
 		}
   ]
 })

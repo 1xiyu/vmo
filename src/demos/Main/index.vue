@@ -59,6 +59,9 @@
               },{
                 text: 'ActionSheet',
                 path: 'actionsheet'
+              },{
+                text: 'CountDown',
+                path: 'countdown'
               }
             ],
         }

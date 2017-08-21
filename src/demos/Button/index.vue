@@ -10,7 +10,7 @@
 		</el-button>
 		<el-button 
 			stress="primary" 
-			text="固定在下按钮" 
+			text="下一步" 
 			:height="60" 
 			@click.native="test"
 			fix-direction="bottom"
