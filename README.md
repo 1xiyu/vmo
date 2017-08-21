@@ -177,12 +177,7 @@
         }
     }) 
 ```
-                list: [],
-                title: '',
-                tail: '取消',
-                show: true,
-                platform: '',
-                callback: null
+
 #### API
 
 | 属性 | 说明 | 类型 | 默认值 |
@@ -192,3 +187,79 @@
 | tail | actionsheet尾巴字段  | String | - | 
 | callback | actionsheet的选择回调  | Function | - | 
 
+### InfiniteScroll
+
+#### Usage
+```
+    <infinite-scroll :on-infinite='loadMore' ref='infinite1'>
+        <div slot='list'>
+            <h1 v-for='item in list1'>{{item}}</h1>
+        </div>
+    </infinite-scroll>
+
+    loadMore() {
+        console.log(1)
+        setTimeout(() => {
+            this.list1 = [...this.list1, ...list]
+            this.$refs.infinite1.$emit('load')
+        }, 2000)
+    }
+```
+
+#### API
+
+| 属性 | 说明 | 类型 | 默认值 |
+|----|------|----|----|
+| onInfinite | 触发到底部执行的函数  | Function | 必填 | 
+| distance | 滚动到底部的默认值  | Number | 50 | 
+ 
+### PageContainer
+
+#### Usage
+```
+    <page-container 
+        class="page-sty"
+        ref="page-container" 
+        :swipe-left="swipeLeft" 
+        :swipe-right="swipeRight" 
+        :scroll="scroll">
+    <div style="height: 120%;">
+        <p>请移动鼠标向左滑动 </p>
+        <p>请移动鼠标向右滑动 </p>
+        <p>请移动鼠标滚轮滑动 </p>
+    </div>
+    </page-container>
+```
+
+#### API
+
+| 属性 | 说明 | 类型 | 默认值 |
+|----|------|----|----|
+| swipeLeft | 左滑事件  | Function | 必填 | 
+| swipeRight | 右滑事件  | Function | - | 
+| scroll | 滚动事件  | Function | - | 
+| show | 当前容器是否展示  | Boolean | true | 
+
+### Button
+
+#### Usage
+```
+    <el-button 
+        stress="primary" 
+        text="下一步" 
+        :height="60" 
+        @click.native="test"
+        fix-direction="bottom"
+        :url="link"> 
+    </el-button>
+```
+
+#### API
+
+| 属性 | 说明 | 类型 | 默认值 |
+|----|------|----|----|
+| stress | 按钮的风格（颜色等）  | String | primary | 
+| text | 按钮文案  | String | - | 
+| height | 按钮的高度  | Number | - | 
+| fixDirection | 固定在最上方活着最下方  | String | - | 
+| url | 按钮侧边的图片链接  | String | - | 
