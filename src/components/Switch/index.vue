@@ -5,7 +5,7 @@
                 @change.stop="toggle">
         <span class="v-switch-core"
                 :style="coreStyle"
-                :aria-checked="ariaChecked"></span>
+                :is-checked="isChecked"></span>
         <div v-if="labels">
             <span class="v-switch-label v-left" v-if="toggled">{{labelChecked}}</span>
             <span class="v-switch-label v-right" v-else>{{labelUnchecked}}</span>
@@ -19,9 +19,7 @@
     const DEF_CHECKED_LABEL = 'on'
     const DEF_UNCHECKED_LABEL = 'off'
 
-    const contains = (object, title) => {
-        return typeof object === 'object' && object.hasOwnProperty(title)
-    }
+    import { contains } from '@/utils/mixin';
 
     export default {
         name: 'Switch',
@@ -31,10 +29,6 @@
                 default: false
             },
             disabled: {
-                type: Boolean,
-                default: false
-            },
-            sync: {
                 type: Boolean,
                 default: false
             },
@@ -58,16 +52,15 @@
         },
         computed: {
             className () {
-                let { toggled, disabled } = this
-
+                let { toggled, disabled } = this;
                 return [
                     'vue-js-switch',
                     { toggled, disabled }
                 ]
             },
 
-            ariaChecked () {
-                return this.toggled.toString()
+            isChecked () {
+                return this.toggled.toString();
             },
 
             colorChecked () {
@@ -108,13 +101,6 @@
                 }
             }
         },
-        watch: {
-            value (value) {
-                if (this.sync) {
-                    this.toggled = value
-                }
-            }
-        },
         data () {
             return {
                 toggled: this.value
@@ -122,8 +108,8 @@
         },
         methods: {
             toggle (event) {
-                this.toggled = !this.toggled
-                this.$emit('change', { value: this.toggled, srcEvent: event })
+                this.toggled = !this.toggled;
+                this.$emit('change', { value: this.toggled, srcEvent: event });
             }
         }
     }

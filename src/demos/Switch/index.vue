@@ -1,8 +1,9 @@
 <template>
   <div>
      <el-switch 
-      :value="checked" 
+      :value.sync="checked" 
       :sync="true" 
+      :color="'#000000'"
       @change="switchOpen">
     </el-switch>
   </div>
@@ -10,23 +11,21 @@
 
 <script>
   import Switch from '@/components/Switch/index'
+  import Message from '@/components/ShowTip'
   export default {
     name: 'switch',
     data() {
         return {
-          checked: true,
-          showLoading: true
+          checked: true
         }
     },
     components: {
-      'el-switch': Switch
+      'el-switch': Switch,
+      Message
     },
     methods: {
-      test () {
-        this.showTip('124')
-      },
-      switchOpen () {
-        console.log('This is a test')
+      switchOpen (val) {
+        this.$showTip(val);
       }
     }
   }

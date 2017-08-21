@@ -12,7 +12,6 @@
                 visible: true,
                 message: '',
                 duration: 2000,
-                type: 'info',
                 iconClass: '',
                 customClass: '',
                 showClose: false,

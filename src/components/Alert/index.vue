@@ -28,7 +28,7 @@ export default {
         return {
             destroy: false,
             show: true,
-            title: '',
+            title: '提示',
             content: '',
             theme: '',
             button: '',

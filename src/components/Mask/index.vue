@@ -10,9 +10,6 @@
         props: {
             show: {
                 default: true
-            },
-            column: {
-                default: 3
             }
         },
         methods: {
